@@ -1,66 +1,21 @@
-#RS style guide backend
+-JWT login, registration
 
-#1. Comment code a lot.
-ex.
-```
- /**
- * Description
- * 
- * 
- * @param {Integer} num desc
- * @param {String} str
- * @returns {String}
- */
-function(num, str) {
-   return "test";
-}
-```
+-Config
 
-#2. Document APIs. Chack first example for it in `logic/user.js`. We use `http://apidocjs.com/#getting-started` for that. Documentation blocks write in logic.
+-Roles
 
-#3. Limit your lines to 80 characters.
+-Logging
 
-#4. Use single quotes, unless you are writing JSON.
+-Dependency injection
 
-#5. Always put semicolon`(;)` on end.
+-Routing
 
-#6. Opening braces go on the same line.
+-Testing
 
-#7. Use lowerCamelCase for variables and methods
+Register: POST /api/v1/register
 
-#8. Use UPPERCASE for Constants
+Login: POST /api/v1/login
 
-#9. Write small functions
+Start test: npm test
 
-#10. Use pre defined handlers for api responses where is it possible
-
-#11. Give descriptive name to methods and properties
-
-#12. Method chaining -> use one method per line.
-
-#13. Requires:
-
-Organize your node requires in the following order:
-```
-core modules
-npm modules
-others
-```
-
-#14. Always check for errors in callbacks:
-
-ex.
-```
-database.get('drabonballs', function(err, drabonballs) {
-  if (err) {
-    // handle the error somehow, maybe return with a callback
-    return console.log(err);
-  }
-  console.log(drabonballs);
-});
-```
-
-
-#15. Format code.
-
-#16. this use like in ex. `var _this = this;`
+Watch test: npm run watch
