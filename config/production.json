@@ -1,0 +1,30 @@
+{
+    "client": {
+        "default": "http://localhost:3000",
+        "dashboard": "http://localhost:4200/"
+    },
+    "db": "mongodb://localhost:27017/rs-db",
+    "version": "/api/v1",
+    "bcrypt": {
+        "saltWorkFactor": 10,
+        "iterations": 1000,
+        "bytes": 32
+    },
+    "jwt": {
+        "secret": "PL8PffjVRLTncTcfSpwWLj5b3pU6iutrPcALyscwE8LnV7aSj9Tvrt2wgVroVVGE2cG2WQlDCGzmZlwDZzfMyGBWf9tw6LRrUUefUBQ363XxpAvQ8GbnC0aVG9FR8wAJ",
+        "key": "dsasdasreraewrfiaebflaehidasd",
+        "type": "Bearer",
+        "validDays": 365
+    },
+    "nodeMailer": {
+        "service": "Gmail",
+        "from": "vladimirdjukic256@gmail.com",
+        "clientId": "461590945116-qrpevafeh6dfkaq26rnmsmuor4sm15ct.apps.googleusercontent.com",
+        "clientSecret": "Q5c9KVsn7q6vPyCBUVvEFNua",
+        "refreshToken": "1/ao-dEefXwwcAkFDy2sSX8B0pZBkOY1v9204cGsh-iX4",
+        "hbs": {
+            "viewPath": "views/emails/",
+            "extName": ".html"
+        }
+    }
+}

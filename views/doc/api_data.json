@@ -1,0 +1,237 @@
+[
+  {
+    "type": "get",
+    "url": "/code/:code",
+    "title": "Activate account",
+    "name": "GetActivateUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>Activation code from email</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " HTTP/1.1 200 OK\n {\n  \"user\": {\n      \"name\": \"Vladimir Djukic\",\n      \"email\": \"vladimir@amerbank.com\",\n      \"_id\": \"589c5c6f2ac66d50bc7b7d5d\",\n      \"updateDate\": \"2017-02-09T12:11:27.541Z\",\n      \"createDate\": \"2017-02-09T12:11:27.541Z\",\n      \"roles\": [\n          \"user\"\n      ]\n   },\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IlUyRnNkR1ZrWDErMlczSHVTMlBZOFkvUDU4Umd4cDI4UnQyY0lJZzJ4V00xV0lvSUwvbXd0eXAxc0NIUmx1QnZ1NHYxRHY4dStNcktJb0l5NGpRMlJiUkZudFFaTElVSWwwYVdicU9FVU80PSIsImlhdCI6MTQ4NjY0MjM2N30.-dAp5Vj9ehyKg_9n4RJZ8RD-616sGdAwQRl48XfULbw\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 401 Unauthorized\n {\n  \"error\":\"Wrong code\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "logic/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/forgot",
+    "title": "Forgot password",
+    "name": "PostForgotPasswordUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "email",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Users email address</p>"
+          }
+        ]
+      }
+    },
+    "description": "<p>After submit user will get link on mail wich can use to reset password</p>",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": \"Link sent to: vladimir@amerbank.com\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   error: \"Email not exists\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "logic/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/login",
+    "title": "Login user",
+    "name": "PostLoginUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "email",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Users email address</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Users password</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"user\": {\n    \"name\": \"Vladimir Djukic\",\n    \"email\": \"vladimir@amerbank.com\",\n    \"_id\": \"589c5c6f2ac66d50bc7b7d5d\",\n    \"updateDate\": \"2017-02-09T12:11:27.541Z\",\n    \"createDate\": \"2017-02-09T12:11:27.541Z\",\n    \"roles\": [\n      \"user\"\n    ]\n  },\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IlUyRnNkR1ZrWDErVGk2dWJWZTBmZXMyRDB1SDRwVm5nOWFyNGFVcldSNEsrRUhocjRUSlg4RHZhc25mRGV5SUlYTVlxYWIyUjZxODQxa0piZ2x6UnFPK0Q5V1RMZEhkZ3dOT2lUSUpLSm1rPSIsImlhdCI6MTQ4NjY0MzA0MX0.Ryts412ZQc1WJJp0_t7Q8vwpeEYgSPbQYWuSjVwR3tU\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 401 Unauthorized\n {\n  \"error\": \"Please activate your account.\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "logic/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/recover",
+    "title": "Recover password",
+    "name": "PostRecoverPasswordUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "code",
+            "description": "<p>Code wich recived on mail</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>New password</p>"
+          }
+        ]
+      }
+    },
+    "description": "<p>Send code and new password to reset passwrod</p>",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": \"Password changed!\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   error: \"Unable to reset password\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "logic/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/register",
+    "title": "Register user",
+    "name": "PostRegisterUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Users full name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Users email address</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Users password</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"name\": \"Vladimir Djukic\",\n  \"email\": \"vladimir@amerbank.com\",\n  \"_id\": \"589c58f134e05a4e6c49ca5a\",\n  \"updateDate\": \"2017-02-09T11:56:33.255Z\",\n  \"createDate\": \"2017-02-09T11:56:33.254Z\",\n  \"roles\": [\n    \"user\"\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 401 Unauthorized\n {\n  \"error\": \"This platform is currently just for internal use.\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "logic/user.js",
+    "groupTitle": "User"
+  }
+]
