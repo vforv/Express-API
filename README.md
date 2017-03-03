@@ -1,21 +1,21 @@
--JWT login, registration
+#-JWT
 
--Config
+#-Config
 
--Roles
+#-Roles
 
--Logging
+#-Logging
 
--Dependency injection
+#-Dependency injection
 
--Routing
+#-Routing
 
--Testing
+#Response handling
 
-Register: POST /api/v1/register
+#Gobal libs
 
-Login: POST /api/v1/login
+#-Testing
 
-Start test: npm test
+Documentation:
 
-Watch test: npm run watch
+http://localhost:3000/doc
